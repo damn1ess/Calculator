@@ -22,22 +22,22 @@ public class CalculatorController {
 
     @GetMapping("/plus")
     public String add(@RequestParam(required = false) Double a, @RequestParam(required = false) Double b) {
-        return processRequest(a, b, "сложения", () -> calculatorService.plus(a, b));
+        return processRequest(a, b, "сложения"  + a + " + " + b + " = ", () -> calculatorService.plus(a, b));
     }
 
     @GetMapping("/minus")
     public String subtract(@RequestParam(required = false) Double a, @RequestParam(required = false) Double b) {
-        return processRequest(a, b, "вычитания", () -> calculatorService.minus(a, b));
+        return processRequest(a, b, "вычитания " + a + " - " + b + " = ", () -> calculatorService.minus(a, b));
     }
 
     @GetMapping("/multiply")
     public String multiply(@RequestParam(required = false) Double a, @RequestParam(required = false) Double b) {
-        return processRequest(a, b, "умножения", () -> calculatorService.multiply(a, b));
+        return processRequest(a, b, "умножения"  + a + " * " + b + " = ", () -> calculatorService.multiply(a, b));
     }
 
     @GetMapping("/divide")
     public String divide(@RequestParam(required = false) Double a, @RequestParam(required = false) Double b) {
-        return processRequest(a, b, "деления", () -> calculatorService.divide(a, b));
+        return processRequest(a, b, "деления"  + a + " / " + b + " = ", () -> calculatorService.divide(a, b));
     }
 
     private String processRequest(Double a, Double b, String operation, Calculation calculation) {
